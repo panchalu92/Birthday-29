@@ -1,0 +1,690 @@
+```css
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+    color: white;
+    background: #12000d;
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+
+    overflow-y: auto;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =========================
+   BACKGROUNDS
+========================= */
+
+#opening {
+    background:
+        radial-gradient(circle at top,
+        #ff5c9a,
+        #8d174e 45%,
+        #230016);
+}
+
+#birthday {
+    background:
+        linear-gradient(
+            135deg,
+            #3b001d,
+            #b3125c,
+            #ff4d88
+        );
+}
+
+#memories {
+    background:
+        linear-gradient(
+            135deg,
+            #240013,
+            #720b3c
+        );
+}
+
+#letter {
+    background:
+        linear-gradient(
+            135deg,
+            #21000f,
+            #8f1d50
+        );
+}
+
+#cake {
+    background:
+        radial-gradient(
+            circle,
+            #ff4f8b,
+            #5c0730 60%,
+            #1a000d
+        );
+}
+
+#final {
+    background:
+        radial-gradient(
+            circle at center,
+            #ff397f,
+            #850d47 45%,
+            #21000f
+        );
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.opening-content {
+    text-align: center;
+    animation: float 3s infinite ease-in-out;
+}
+
+.gift {
+    font-size: 100px;
+    margin-bottom: 20px;
+
+    animation:
+        giftBounce 1.5s infinite;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(50px, 8vw, 100px);
+}
+
+.opening-content p {
+    margin: 20px 0 35px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: none;
+    outline: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: white;
+    color: #c2185b;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-content {
+    text-align: center;
+    max-width: 850px;
+}
+
+.sparkle {
+    font-size: 60px;
+
+    animation:
+        sparkle 1.5s infinite alternate;
+}
+
+.birthday-content h1 {
+    margin-top: 10px;
+}
+
+.birthday-content h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(30px, 5vw, 55px);
+    color: #ffd3e4;
+}
+
+.intro {
+    margin: 30px 0;
+
+    font-size: 18px;
+    line-height: 2;
+
+    color: #ffe5ef;
+}
+
+
+/* =========================
+   SECTION CONTAINER
+========================= */
+
+.section-container {
+    width: min(1100px, 100%);
+    text-align: center;
+}
+
+.subtitle {
+    margin: 10px 0 30px;
+    opacity: 0.8;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin: 30px 0;
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.12);
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.4s,
+        background 0.4s;
+}
+
+.photo-card:hover {
+    transform:
+        translateY(-10px)
+        rotate(2deg);
+
+    background:
+        rgba(255, 255, 255, 0.2);
+}
+
+.photo-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+.photo-card p {
+    padding: 12px 5px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    width: min(700px, 100%);
+
+    padding: 40px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    color: #57102e;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+}
+
+.letter h1 {
+    font-size: 55px;
+    color: #bd175d;
+}
+
+.letter-top {
+    font-size: 55px;
+}
+
+.letter-text {
+    margin-top: 25px;
+
+    text-align: left;
+
+    line-height: 1.9;
+}
+
+.letter-text p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+
+    font-family: "Dancing Script", cursive;
+
+    font-size: 30px;
+
+    color: #c2185b;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-container {
+    text-align: center;
+}
+
+.cake-container h1 {
+    margin-bottom: 60px;
+}
+
+.cake {
+    position: relative;
+
+    width: 220px;
+    height: 170px;
+
+    margin: auto;
+}
+
+.cake-body {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 220px;
+    height: 120px;
+
+    border-radius:
+        15px 15px 25px 25px;
+
+    background:
+        linear-gradient(
+            #ff9fc1,
+            #e94379
+        );
+
+    box-shadow:
+        inset 0 -15px rgba(0, 0, 0, 0.12);
+}
+
+.cake-top {
+    position: absolute;
+
+    top: 35px;
+
+    left: 0;
+
+    width: 220px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #ffd5e3;
+
+    z-index: 2;
+}
+
+.cream {
+    position: absolute;
+
+    width: 30px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    top: 25px;
+}
+
+.cream1 {
+    left: 30px;
+}
+
+.cream2 {
+    left: 95px;
+}
+
+.cream3 {
+    right: 30px;
+}
+
+
+/* =========================
+   CANDLE
+========================= */
+
+.candle {
+    position: absolute;
+
+    z-index: 5;
+
+    width: 18px;
+    height: 55px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff 5px,
+            #ff6f9d 5px,
+            #ff6f9d 10px
+        );
+
+    left: 101px;
+    top: -20px;
+
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+
+    width: 25px;
+    height: 35px;
+
+    left: -4px;
+    top: -32px;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff 5%,
+            #ffe600 25%,
+            #ff8c00 50%,
+            transparent 70%
+        );
+
+    animation:
+        flame 0.3s infinite alternate;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-content {
+    text-align: center;
+
+    max-width: 800px;
+}
+
+.big-heart {
+    font-size: 120px;
+
+    animation:
+        heartBeat 1s infinite;
+}
+
+.final-content h1 {
+    font-size: clamp(60px, 10vw, 120px);
+}
+
+.final-content h2 {
+    font-family: "Dancing Script", cursive;
+
+    font-size: 40px;
+
+    color: #ffd3e4;
+
+    margin-bottom: 25px;
+}
+
+.final-content p {
+    font-size: 18px;
+    line-height: 1.8;
+
+    margin: 10px 0;
+}
+
+.final-hearts {
+    font-size: 35px;
+
+    margin: 30px 0;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+.heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    color: #ffb5cf;
+
+    font-size: 20px;
+
+    animation:
+        floatHeart linear forwards;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes giftBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes sparkle {
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1) rotate(-3deg);
+    }
+
+    to {
+        transform: scale(1.15) rotate(3deg);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .letter {
+        padding: 25px;
+
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
+    .letter h1 {
+        font-size: 45px;
+    }
+
+    .cake-container h1 {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .photo-card p {
+        font-size: 11px;
+    }
+
+    .birthday-content h2 {
+        font-size: 35px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 13px 22px;
+        font-size: 14px;
+    }
+}
+```
